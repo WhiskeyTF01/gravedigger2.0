@@ -103,10 +103,25 @@ AddEventHandler('wtf-treasurehunter:found', function(currentSearch)
        rewardType = math.random(1, 2) == 1 and "cash" or "item"  -- 50% chance for cash or item
    end
 
-   if rewardType == "cash" then  -- Cash reward
-       local cashReward = math.random(Config.CashRewards[rewardLevel].min, Config.CashRewards[rewardLevel].max)
-       Player.Functions.AddMoney("cash", cashReward)
-       TriggerClientEvent('ox_lib:notify', _source, { title = "Congratulations!", description = "You found $" .. cashReward .. " in cash!", type = "success" })
+   -- Cash reward generation logic
+if rewardType == "cash" then
+    local minReward = Config.CashRewards[rewardLevel].min * 100  -- e.g., 1 for $0.01
+    local maxReward = Config.CashRewards[rewardLevel].max * 100  -- e.g., 10 for $0.10
+
+    -- Generate a random integer between min and max (in cents), then convert to dollars
+    local cashReward = math.random(minReward, maxReward) / 100
+
+    -- Add the money to the player and notify them
+    Player.Functions.AddMoney("cash", cashReward)
+    TriggerClientEvent('ox_lib:notify', _source, { 
+        title = "Congratulations!", 
+        description = "You found $" .. string.format("%.2f", cashReward) .. " in cash!", 
+        type = "success" 
+    })
+
+
+
+
    elseif rewardType == "item" then  -- Item reward
        local rewardItems = Config.RewardItems[rewardLevel]
        local rewardItem = rewardItems[math.random(#rewardItems)]

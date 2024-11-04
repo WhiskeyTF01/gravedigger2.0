@@ -11,7 +11,7 @@ Config.ResetMessage = "Digging locations have been shuffled!" -- what you want t
 Config.WaitDurationMin = 10000  -- Minimum time digging
 Config.WaitDurationMax = 25000  -- Maximum time digging
 Config.UseProgressBar = true -- Set to false if you don't want the progress bar
-Config.RewardType = "50_50"  -- Options: "cash", "item", or "50_50" for rewards at the bottom
+Config.RewardType = "cash"  -- Options: "cash", "item", or "50_50" for rewards at the bottom
 
 
 
@@ -135,6 +135,18 @@ Config.DiggingLocations = {
     [111] = {coord = vector3(-5445.58, -2902.68, 1.05), name = 'Tumbleweed', searched = false, time = 0},
     [112] = {coord = vector3(-5449.43, -2900.57, 1.03), name = 'Tumbleweed', searched = false, time = 0},
     [113] = {coord = vector3(-5454.69, -2896.32, 0.93), name = 'Tumbleweed', searched = false, time = 0},
+
+      --Emerald Ranch
+      [114] = {coord = vector3(1457.79, 422.41, 93.62), name = 'emraldranch', searched = false, time = 0},
+      [115] = {coord = vector3(1455.48, 421.01, 93.76), name = 'emraldranch', searched = false, time = 0},
+      [116] = {coord = vector3(1452.92, 420.49, 93.83), name = 'emraldranch', searched = false, time = 0},
+      [117] = {coord = vector3(1450.99, 418.83, 93.80), name = 'emraldranch', searched = false, time = 0},
+      [118] = {coord = vector3(1453.32, 416.32, 93.64), name = 'emraldranch', searched = false, time = 0},
+      [119] = {coord = vector3(1455.97, 417.36, 93.58), name = 'emraldranch', searched = false, time = 0},
+      [120] = {coord = vector3(1458.32, 417.73, 93.53), name = 'emraldranch', searched = false, time = 0},
+      [121] = {coord = vector3(1457.95, 415.29, 93.52), name = 'emraldranch', searched = false, time = 0},
+      [122] = {coord = vector3(1455.47, 414.51, 93.56), name = 'emraldranch', searched = false, time = 0},
+    
     
 }
 
@@ -146,9 +158,9 @@ Config.RewardChances = {
 }
 -- Cash rewards based on level
 Config.CashRewards = {
-    good = { min = 0.1, max = 0.10 }, 
-    better = { min = 0.11, max = 0.20 }, 
-    best = { min = 0.21, max = 0.30 } 
+    good = { min = 0.10, max = 0.20 }, 
+    better = { min = 0.21, max = 0.30 }, 
+    best = { min = 0.31, max = 0.40 } 
 }
 
 -- Reward items
