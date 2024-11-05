@@ -6,8 +6,8 @@ local targetZones = {}
 
 CreateThread(function()
     Wait(1000)
-    setupSearches() -- Initializes search locations
-    SetupDiggingLocations() -- Ensure it's called at the start
+    setupSearches() 
+    SetupDiggingLocations() 
     while true do
         local ped = PlayerPedId()
         local playerPos = GetEntityCoords(ped)
@@ -19,9 +19,9 @@ CreateThread(function()
             end
         end
         if not isInRange then
-            Wait(5000) -- Longer wait if not in range
+            Wait(5000) 
         end
-        Wait(3) -- Frequent checks
+        Wait(3) 
     end
 end)
 
@@ -56,7 +56,7 @@ function StartDiggingAnimation(location)
                 FreezeEntityPosition(ped, true)
                 TaskPlayAnim(ped, "amb_work@world_human_gravedig@working@male_b@base", "base", 3.0, 3.0, -1, 1, 0, false, false, false)
 
-                -- Display the progress bar for digging
+               
                 if Config.UseProgressBar then
                     lib.progressBar({
                         duration = waitDuration,
@@ -71,7 +71,7 @@ function StartDiggingAnimation(location)
                         label = "Digging...",
                     })
                 else
-                    Wait(waitDuration) -- If progress bar is disabled, just wait
+                    Wait(waitDuration)
                 end
 
                 local playerCoords = GetEntityCoords(ped)
@@ -106,7 +106,7 @@ end
 function SetupDiggingLocations()
     local groupedLocations = GroupLocationsByName(Config.DiggingLocations)
 
-    -- Remove existing target zones before creating new ones
+   
     for _, zone in pairs(targetZones) do
         exports['rsg-target']:RemoveZone(zone)
     end
@@ -178,7 +178,7 @@ end)
 
 RegisterNetEvent('wtf-treasurehunter:updateLocations', function(newLocations)
     Config.DiggingLocations = newLocations
-    SetupDiggingLocations() -- Refresh the target zones with new locations
+    SetupDiggingLocations() 
 end)
 
 function setupSearches()

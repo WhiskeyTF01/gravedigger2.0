@@ -1,21 +1,21 @@
 Config = {}
 
--- Cooldown time for digging in milliseconds
-Config.DigCooldown = (60 * 1000) * 3 -- 10 minutes- the wait time before the same hole can be dug again adjust to your wants i.e. search the same hole 3 times per shuffle or match to not search again.
+Config.DigCooldown = (60 * 1000) * 30 -- 10 minutes- the wait time before the same hole can be dug again adjust to your wants i.e. search the same hole 3 times per shuffle or match to not search again.
 Config.NumberOfLocations = 3 -- Number of sites available per location i.e. 3 graves per name/area 
 Config.tickInterval = 1000  -- Time multiplier (1000 = x1, 2000 = x2, etc.) (dont touch unless you know what your doing)
-Config.resettime = (60 * 1000) * 3 -- set at 30 minutes -- needs to be the same as config.shuffleInterval
-Config.shuffleInterval = (60 * 1000) * 3 -- set at 30 minutes -- Shuffle needs to be the same as config.resettime
+Config.resettime = (60 * 1000) * 30 -- set at 30 minutes -- needs to be the same as config.shuffleInterval
+Config.shuffleInterval = (60 * 1000) * 30 -- set at 30 minutes -- Shuffle needs to be the same as config.resettime
 Config.SendResetMessage = false  -- Set to true to send the message to the player that the locations have been reset, false to disable
 Config.ResetMessage = "Digging locations have been shuffled!" -- what you want the player to read if above set true
 Config.WaitDurationMin = 10000  -- Minimum time digging
 Config.WaitDurationMax = 25000  -- Maximum time digging
 Config.UseProgressBar = true -- Set to false if you don't want the progress bar
-Config.RewardType = "cash"  -- Options: "cash", "item", or "50_50" for rewards at the bottom
-
+Config.RewardType = "50_50"  -- Options: "cash", "item", or "50_50" for rewards at the bottom
+Config.Debug = false -- to use server and client prints
 
 
 -- Define digging locations-- name = area that can be searched to add more just continue with this config and change the name to whatever you want for the next section.
+-- Time should always = 0
 Config.DiggingLocations = {
     -- Valentine Section
     [1] = {coord = vector3(-230.71, 829.16, 124.41), name = 'Valentine', searched = false, time = 0},
@@ -137,15 +137,15 @@ Config.DiggingLocations = {
     [113] = {coord = vector3(-5454.69, -2896.32, 0.93), name = 'Tumbleweed', searched = false, time = 0},
 
       --Emerald Ranch
-      [114] = {coord = vector3(1457.79, 422.41, 93.62), name = 'emraldranch', searched = false, time = 0},
-      [115] = {coord = vector3(1455.48, 421.01, 93.76), name = 'emraldranch', searched = false, time = 0},
-      [116] = {coord = vector3(1452.92, 420.49, 93.83), name = 'emraldranch', searched = false, time = 0},
-      [117] = {coord = vector3(1450.99, 418.83, 93.80), name = 'emraldranch', searched = false, time = 0},
-      [118] = {coord = vector3(1453.32, 416.32, 93.64), name = 'emraldranch', searched = false, time = 0},
-      [119] = {coord = vector3(1455.97, 417.36, 93.58), name = 'emraldranch', searched = false, time = 0},
-      [120] = {coord = vector3(1458.32, 417.73, 93.53), name = 'emraldranch', searched = false, time = 0},
-      [121] = {coord = vector3(1457.95, 415.29, 93.52), name = 'emraldranch', searched = false, time = 0},
-      [122] = {coord = vector3(1455.47, 414.51, 93.56), name = 'emraldranch', searched = false, time = 0},
+    [114] = {coord = vector3(1457.79, 422.41, 93.62), name = 'emraldranch', searched = false, time = 0},
+    [115] = {coord = vector3(1455.48, 421.01, 93.76), name = 'emraldranch', searched = false, time = 0},
+    [116] = {coord = vector3(1452.92, 420.49, 93.83), name = 'emraldranch', searched = false, time = 0},
+    [117] = {coord = vector3(1450.99, 418.83, 93.80), name = 'emraldranch', searched = false, time = 0},
+    [118] = {coord = vector3(1453.32, 416.32, 93.64), name = 'emraldranch', searched = false, time = 0},
+    [119] = {coord = vector3(1455.97, 417.36, 93.58), name = 'emraldranch', searched = false, time = 0},
+    [120] = {coord = vector3(1458.32, 417.73, 93.53), name = 'emraldranch', searched = false, time = 0},
+    [121] = {coord = vector3(1457.95, 415.29, 93.52), name = 'emraldranch', searched = false, time = 0},
+    [122] = {coord = vector3(1455.47, 414.51, 93.56), name = 'emraldranch', searched = false, time = 0},
     
     
 }
