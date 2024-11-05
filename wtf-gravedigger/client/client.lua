@@ -3,6 +3,7 @@ local isDigging = false
 local shovelObject = nil
 local createdObjects = {}
 local targetZones = {}
+lib.locale()
 
 CreateThread(function()
     Wait(1000)
@@ -68,7 +69,7 @@ function StartDiggingAnimation(location)
                             move = true,
                             mouse = true,
                         },
-                        label = "Digging...",
+                        label = locale('cl_lang_1'),
                     })
                 else
                     Wait(waitDuration)
@@ -94,13 +95,13 @@ function StartDiggingAnimation(location)
                 TriggerServerEvent('wtf-treasurehunter:found', currentSearch)
                 return
             else
-                lib.notify({ title = 'This has already been searched', type = 'inform', duration = 7000 })
+                lib.notify({ title = locale('cl_lang_2'), type = 'inform', duration = 7000 })
                 return
             end
         end
     end
 
-    lib.notify({ title = 'You are too far away to dig', type = 'inform', duration = 7000 })
+    lib.notify({ title = locale('cl_lang_3'), type = 'inform', duration = 7000 })
 end
 
 function SetupDiggingLocations()
@@ -126,7 +127,7 @@ function SetupDiggingLocations()
                     {
                         event = 'digging:startDigging',
                         icon = 'fas fa-hand',
-                        label = 'Start Digging',
+                        label = locale('cl_lang_4'),
                         location = locationData,
                         coord = coord
                     },
