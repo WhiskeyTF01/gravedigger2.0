@@ -8,7 +8,6 @@ description 'wtf-gravedigger'
 version '1.1.2'
 
 shared_scripts {
-    '@rsg-core/shared/locale.lua',
     'config.lua',
     '@ox_lib/init.lua',
 }
@@ -22,9 +21,14 @@ server_scripts {
 
 }
 
+files {
+    'locales/*.json'
+  }
+
 dependencies {
     'rsg-core',
     'rsg-target',
+    'ox_lib',
 }
 
 lua54 'yes'

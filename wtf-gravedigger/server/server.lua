@@ -1,4 +1,5 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
+lib.locale()
 
 local function ShuffleLocations()
     local shuffledLocations = {}
@@ -115,8 +116,8 @@ if rewardType == "cash" then
     
     Player.Functions.AddMoney("cash", cashReward)
     TriggerClientEvent('ox_lib:notify', _source, { 
-        title = "Congratulations!", 
-        description = "You found $" .. string.format("%.2f", cashReward) .. " in cash!", 
+        title = locale('sv_lang_1'), 
+        description = locale('sv_lang_2') .. string.format("%.2f", cashReward) .. locale('sv_lang_3'), 
         type = "success" 
     })
 
@@ -127,11 +128,9 @@ if rewardType == "cash" then
        local rewardItems = Config.RewardItems[rewardLevel]
        local rewardItem = rewardItems[math.random(#rewardItems)]
        Player.Functions.AddItem(rewardItem, 1)
-       TriggerClientEvent('ox_lib:notify', _source, { title = "Congratulations!", description = "You found a " .. rewardItem:gsub("_", " ") .. "!", type = "success" })
+       TriggerClientEvent('ox_lib:notify', _source, { title = locale('sv_lang_1'), description = locale('sv_lang_4') .. rewardItem:gsub("_", " ") .. "!", type = "success" })
    end
 else
    print("[ERROR] Player not found for ID: " .. tostring(_source))
 end
 end)
-
-

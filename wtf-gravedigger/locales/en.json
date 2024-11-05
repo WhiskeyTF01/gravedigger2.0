@@ -1,0 +1,10 @@
+{    
+    "cl_lang_1" : "Digging...",
+    "cl_lang_2" : "This has already been searched",
+    "cl_lang_3" : "You are too far away to dig",
+    "cl_lang_4" : "Start Digging",
+    "sv_lang_1" : "Congratulations!",
+    "sv_lang_2" : "You found $",
+    "sv_lang_3" : " in cash!",
+    "sv_lang_4" : "You found a "
+}
