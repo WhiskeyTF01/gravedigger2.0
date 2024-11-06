@@ -107,22 +107,24 @@ AddEventHandler('wtf-treasurehunter:found', function(currentSearch)
 
   
 if rewardType == "cash" then
-    local minReward = Config.CashRewards[rewardLevel].min * 100  
-    local maxReward = Config.CashRewards[rewardLevel].max * 100  
+    -- Multiply by 100 to convert amounts to cents (avoiding decimals in math.random)
+    local minReward = math.floor(Config.CashRewards[rewardLevel].min * 100)  
+    local maxReward = math.floor(Config.CashRewards[rewardLevel].max * 100)
 
-   
-    local cashReward = math.random(minReward, maxReward) / 100
+    -- Check that minReward and maxReward are valid
+    if minReward > 0 and maxReward > 0 and minReward <= maxReward then
+        -- Calculate the reward amount by dividing by 100 to revert to dollars
+        local cashReward = math.random(minReward, maxReward) / 100
 
-    
-    Player.Functions.AddMoney("cash", cashReward)
-    TriggerClientEvent('ox_lib:notify', _source, { 
-        title = locale('sv_lang_1'), 
-        description = locale('sv_lang_2') .. string.format("%.2f", cashReward) .. locale('sv_lang_3'), 
-        type = "success" 
-    })
-
-
-
+        Player.Functions.AddMoney("cash", cashReward)
+        TriggerClientEvent('ox_lib:notify', _source, { 
+            title = locale('sv_lang_1'), 
+            description = locale('sv_lang_2') .. string.format("%.2f", cashReward) .. locale('sv_lang_3'), 
+            type = "success" 
+        })
+    else
+        print("[ERROR] Invalid reward range for reward level: " .. rewardLevel)
+    end
 
    elseif rewardType == "item" then  
        local rewardItems = Config.RewardItems[rewardLevel]
